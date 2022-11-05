@@ -8,9 +8,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |
-          # 登录阿里云镜像仓库
           docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
-          # 使用Dockerfile构建镜像
           docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/lain-txl/flow:main
-          # 推送镜像到镜像仓库
           docker push registry.cn-hangzhou.aliyuncs.com/lain-txl/flow:main
