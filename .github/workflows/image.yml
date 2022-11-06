@@ -1,5 +1,10 @@
 name: Image
 on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v*'
   workflow_dispatch:
 env:
   ACR_URL: "registry.cn-zhangjiakou.aliyuncs.com/lain-txl/flow"
